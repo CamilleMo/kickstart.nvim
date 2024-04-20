@@ -1,7 +1,7 @@
 -- lua/custom/keymaps.lua
 
 -- Map 'jk' to 'Esc' in normal, visual, and insert modes using vim.keymap.set
-vim.keymap.set({ 'n', 'i', 'v' }, 'jk', '<Esc>', { noremap = true, silent = true })
+vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 
 -- buffer management commands
 vim.keymap.set('n', '<leader>bc', ':bd<CR>', { noremap = true, silent = true, desc = 'Close current buffer' })
@@ -10,5 +10,8 @@ vim.keymap.set('n', '<leader>bb', ':bprevious<CR>', { noremap = true, silent = t
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true, desc = 'Switch to next buffer' })
 local telescope_builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>bl', telescope_builtin.buffers, { desc = 'Find existing buffers' })
---- do :w file.txt to save a new buffer
+--  NOTE: do :w file.txt to save a new buffer
 vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true, desc = 'Open a new buffer - enew' })
+
+-- code commands
+vim.keymap.set('n', '<leader>cc', ':normal gcc<CR>', { noremap = true, silent = true, desc = '[C]ode [C]omment' })
