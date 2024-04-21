@@ -906,3 +906,4 @@ require('lazy').setup({
 require 'custom.keymaps' -- Importing the custom keymaps
 -- custom plugins setup
 require 'custom.plugins.lualine'
+require 'custom.plugins.obsidian'
