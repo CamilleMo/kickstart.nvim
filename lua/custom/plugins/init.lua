@@ -2,6 +2,14 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
+
+local obsidian_vault = os.getenv 'OBSIDIAN_HOME'
+if obsidian_vault then
+  print('Obsidian Vault is set to:' .. obsidian_vault)
+else
+  print "Environment variable 'OBSIDIAN_HOME' is not set."
+end
+
 return {
   {
     'nvim-lualine/lualine.nvim',
@@ -37,7 +45,7 @@ return {
       workspaces = {
         {
           name = 'main',
-          path = '/home/camille/Apps/Obsidian/main',
+          path = obsidian_vault,
         },
       },
 
