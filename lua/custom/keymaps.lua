@@ -15,3 +15,14 @@ vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true, 
 
 -- code commands
 vim.keymap.set('n', '<leader>cc', ':normal gcc<CR>', { noremap = true, silent = true, desc = '[C]ode [C]omment' })
+
+-- neogit
+vim.keymap.set('n', '<leader>gs', ':Neogit<CR>', { noremap = true, silent = true, desc = 'Open Neogit' })
+vim.keymap.set('n', '<leader>gc', ':Neogit commit<CR>', { noremap = true, silent = true, desc = 'Neogit Commit' })
+vim.keymap.set('n', '<leader>gp', ':Neogit pull<CR>', { noremap = true, silent = true, desc = 'Neogit pull' })
+vim.keymap.set('n', '<leader>gP', ':Neogit push<CR>', { noremap = true, silent = true, desc = 'Neogit push' })
+vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<CR>', { noremap = true, silent = true, desc = 'Neogit see branches' })
+-- vim.keymap.set('n', '<leader>gB', ':G blame<CR>', { noremap = true, silent = true, desc = 'Open Neogit' })
+
+-- misc
+vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, desc = 'FORCE QUIT' })
