@@ -231,3 +231,7 @@ sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ```
 </details>
 
+## Personal Notes
+Please set the Obsidian Vault location with an environment variable in the .zshrc or .bashrc :
+`export OBSIDIAN_VAULT='/my/vault/location'`
+
