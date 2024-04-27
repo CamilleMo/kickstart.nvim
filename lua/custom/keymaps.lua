@@ -29,5 +29,8 @@ vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<CR>', { noremap = tru
 vim.keymap.set('n', '<leader>cid', ':read !date --iso-8601<CR>', { noremap = true, silent = true, desc = '[C]ode [I]nsert [D]ate' })
 vim.keymap.set('n', '<leader>cit', ':read !date<CR>', { noremap = true, silent = true, desc = '[C]ode [I]nsert [T]imestamp' })
 
+-- LSP helper
+vim.keymap.set('n', 'gl', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true, desc = 'LSP: [G]o to [L]ine diagnostic' })
+
 -- misc
 vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, desc = 'FORCE QUIT' })

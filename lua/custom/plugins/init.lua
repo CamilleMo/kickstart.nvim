@@ -67,4 +67,11 @@ return {
   {
     { 'akinsho/toggleterm.nvim', version = '*', config = true },
   },
+  {
+    'nvimtools/none-ls.nvim',
+    ft = { 'python' },
+    -- opts = function()
+    --   return require 'custom.plugins.none-ls'
+    -- end,
+  },
 }
