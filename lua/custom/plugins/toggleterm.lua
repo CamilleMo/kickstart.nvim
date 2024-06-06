@@ -14,6 +14,24 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 end
 
+local function switch_to_float()
+  vim.api.nvim_create_user_command('ToggleTermSwitchFloat', 'ToggleTerm dir=. direction=float', {})
+end
+local function switch_to_tab()
+  vim.api.nvim_create_user_command('ToggleTermSwitchTab', 'ToggleTerm dir=. direction=tab', {})
+end
+local function switch_to_horizontal()
+  vim.api.nvim_create_user_command('ToggleTermSwitchHorizontal', 'ToggleTerm dir=. direction=horizontal', {})
+end
+local function switch_to_vertical()
+  vim.api.nvim_create_user_command('ToggleTermSwitchVertical', 'ToggleTerm size=40 dir=. direction=vertical', {})
+end
+
+switch_to_float()
+switch_to_tab()
+switch_to_horizontal()
+switch_to_vertical()
+
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd 'autocmd! TermOpen term://* lua set_terminal_keymaps()'
 
