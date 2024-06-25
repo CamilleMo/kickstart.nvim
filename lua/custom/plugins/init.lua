@@ -74,4 +74,10 @@ return {
     --   return require 'custom.plugins.none-ls'
     -- end,
   },
+  {
+    'supermaven-inc/supermaven-nvim',
+    -- config = function()
+    --   require('supermaven-nvim').setup {}
+    -- end,
+  },
 }
