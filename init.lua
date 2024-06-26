@@ -919,7 +919,9 @@ require('lazy').setup({
 -- custom imports
 
 require 'custom.keymaps' -- Importing the custom keymaps
+require 'custom.deno_and_typescript'
 -- custom plugins setup
+-- TODO: this should not be necessary as the lazy section import custom plugins, refactor
 require 'custom.plugins.lualine'
 require 'custom.plugins.obsidian'
 require 'custom.plugins.supermaven'
