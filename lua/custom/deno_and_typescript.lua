@@ -21,14 +21,22 @@ lspconfig.tsserver.setup {
   root_dir = util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git'),
 }
 
--- -- Setup denols
--- lspconfig.denols.setup {
---   on_attach = function(client, bufnr)
---     -- Your usual on_attach logic for denols
---   end,
---   root_dir = util.root_pattern('deno.json', '.git'),
---   init_options = {
---     enable = true,
---     lint = true,
---   },
--- }
+-- Setup denols
+lspconfig.denols.setup {
+  on_attach = function(client, bufnr)
+    -- Your usual on_attach logic for denols
+    local root_dir = client.config.root_dir
+    if not is_deno_project(root_dir) then
+      -- If `deno.json` is not present, stop denols
+      client.stop()
+    else
+      -- Otherwise, proceed as usual
+      -- You can put your usual on_attach logic here
+    end
+  end,
+  root_dir = util.root_pattern('deno.json', '.git'),
+  init_options = {
+    enable = true,
+    lint = true,
+  },
+}
