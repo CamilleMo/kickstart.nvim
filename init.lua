@@ -968,3 +968,4 @@ require 'custom.deno_and_typescript'
 -- TODO: this should not be necessary as the lazy section import custom plugins, refactor
 require 'custom.plugins.lualine'
 require 'custom.plugins.obsidian'
+require 'custom.plugins.oil'
