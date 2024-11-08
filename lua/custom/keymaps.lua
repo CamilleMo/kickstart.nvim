@@ -6,7 +6,7 @@ vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 -- buffer management commands
 vim.keymap.set('n', '<leader>bc', ':bd<CR>', { noremap = true, silent = true, desc = 'Close current buffer' })
 vim.keymap.set('n', '<leader>bw', ':w<CR>', { noremap = true, silent = true, desc = 'Write (save) current buffer' })
-vim.keymap.set('n', '<leader>w', ':w<CR>', { noremap = true, silent = true, desc = 'Write (save) current buffer' })
+vim.keymap.set('n', ',w', ':w<CR>', { noremap = true, silent = true, desc = 'Write (save) current buffer' })
 vim.keymap.set('n', '<leader>bb', ':bprevious<CR>', { noremap = true, silent = true, desc = 'Switch to previous buffer' })
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true, desc = 'Switch to next buffer' })
 local telescope_builtin = require 'telescope.builtin'
