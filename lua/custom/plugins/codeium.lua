@@ -22,3 +22,5 @@ return {
     -- set statusline+=\{…\}%3{codeium#GetStatusString()} in lua
   end,
 }
+-- codeium#AcceptNextWord()
+-- codeium#AcceptNextLine()

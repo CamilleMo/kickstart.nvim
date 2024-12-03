@@ -11,6 +11,7 @@ vim.keymap.set('n', '<leader>bb', ':bprevious<CR>', { noremap = true, silent = t
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true, desc = 'Switch to next buffer' })
 local telescope_builtin = require 'telescope.builtin'
 vim.keymap.set('n', '<leader>bl', telescope_builtin.buffers, { desc = 'Find existing buffers' })
+vim.keymap.set('n', '<leader>ba', ':e #<CR>', { noremap = true, silent = true, desc = 'Switch to alternate buffer' })
 --  NOTE: do :w file.txt to save a new buffer
 vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true, desc = 'Open a new buffer - enew' })
 
