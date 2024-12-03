@@ -149,6 +149,9 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
+-- display a tab as the same width as four spaces
+vim.opt.tabstop = 4
+
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
