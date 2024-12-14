@@ -34,4 +34,6 @@ vim.keymap.set('n', '<leader>cit', ':read !date<CR>', { noremap = true, silent =
 vim.keymap.set('n', 'gl', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true, desc = 'LSP: [G]o to [L]ine diagnostic' })
 
 -- misc
-vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, desc = 'FORCE QUIT' })
+vim.keymap.set('n', '<leader>T', ':qa!<CR>', { noremap = true, silent = true, desc = 'FORCE QUIT' })
+vim.keymap.set('n', '<leader>X', ':luafile %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
+vim.keymap.set('v', '<leader>x', ':lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
