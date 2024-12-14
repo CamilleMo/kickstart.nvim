@@ -980,7 +980,9 @@ require('lazy').setup({
 
 -- custom imports
 
+-- Custom keymaps maintained separately
 require 'custom.keymaps' -- Importing the custom keymaps
+
 -- require 'custom.deno_and_typescript'
 require 'custom.auto_reload_buffer'
 -- custom plugins setup

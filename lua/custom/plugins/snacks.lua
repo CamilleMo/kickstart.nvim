@@ -12,12 +12,6 @@ return {
       enabled = true,
       preset = {
         header = [[
-        _   _        __      ___           
-       | \ | |       \ \    / (_)          
-       |  \| | ___  __\ \  / / _ _ __ ___  
-       | . ` |/ _ \/ _ \ \/ / | | '_ ` _ \ 
-       | |\  |  __/ (_) \  /  | | | | | | |
-       |_| \_|\___|\___/ \/   |_|_| |_| |_|
         ]],
       },
     },
@@ -29,5 +23,41 @@ return {
     scroll = { enabled = false },
     statuscolumn = { enabled = false },
     words = { enabled = false },
+    terminal = {
+      -- bo = {
+      --   filetype = 'terminal',
+      -- },
+      -- wo = {},
+      -- keys = {
+      --   q = 'hide',
+      --   gf = function(self)
+      --     local f = vim.fn.findfile(vim.fn.expand '<cfile>', '**')
+      --     if f == '' then
+      --       Snacks.notify.warn 'No file under cursor'
+      --     else
+      --       self:hide()
+      --       vim.schedule(function()
+      --         vim.cmd('e ' .. f)
+      --       end)
+      --     end
+      --   end,
+      --   term_normal = {
+      --     '<esc>',
+      --     function(self)
+      --       self.esc_timer = self.esc_timer or (vim.uv or vim.loop).new_timer()
+      --       if self.esc_timer:is_active() then
+      --         self.esc_timer:stop()
+      --         vim.cmd 'stopinsert'
+      --       else
+      --         self.esc_timer:start(200, 0, function() end)
+      --         return '<esc>'
+      --       end
+      --     end,
+      --     mode = 't',
+      --     expr = true,
+      --     desc = 'Double escape to normal mode',
+      --   },
+      -- },
+    },
   },
 }

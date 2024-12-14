@@ -6,7 +6,7 @@ vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, silent = true })
 -- buffer management commands
 vim.keymap.set('n', '<leader>bc', ':bd<CR>', { noremap = true, silent = true, desc = 'Close current buffer' })
 vim.keymap.set('n', '<leader>bw', ':w<CR>', { noremap = true, silent = true, desc = 'Write (save) current buffer' })
-vim.keymap.set('n', ',w', ':w<CR>', { noremap = true, silent = true, desc = 'Write (save) current buffer' })
+-- vim.keymap.set('n', ',w', ':w<CR>', { noremap = true, silent = true, desc = 'Write (save) current buffer' })
 vim.keymap.set('n', '<leader>bb', ':bprevious<CR>', { noremap = true, silent = true, desc = 'Switch to previous buffer' })
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, silent = true, desc = 'Switch to next buffer' })
 local telescope_builtin = require 'telescope.builtin'
@@ -34,6 +34,6 @@ vim.keymap.set('n', '<leader>cit', ':read !date<CR>', { noremap = true, silent =
 vim.keymap.set('n', 'gl', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true, desc = 'LSP: [G]o to [L]ine diagnostic' })
 
 -- misc
-vim.keymap.set('n', '<leader>T', ':qa!<CR>', { noremap = true, silent = true, desc = 'FORCE QUIT' })
+vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, desc = 'FORCE QUIT' })
 vim.keymap.set('n', '<leader>X', ':luafile %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
