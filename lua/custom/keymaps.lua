@@ -35,5 +35,10 @@ vim.keymap.set('n', 'gl', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>
 
 -- misc
 vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, desc = 'FORCE QUIT' })
-vim.keymap.set('n', '<leader>X', ':luafile %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
+vim.keymap.set('n', '<leader>X', '<cmd>source %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
+vim.keymap.set('n', '<leader>x', ':.lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
+-- terminal
+vim.keymap.set('t', '<C-t>', '<C-\\><C-n>', { noremap = true, silent = true, desc = 'Out of terminal' })
+vim.keymap.set({ 'n' }, '<C-t>', ':lua Snacks.terminal.toggle()<CR>', { noremap = true, silent = true, desc = 'Out of terminal' })
+print 'keymaps loaded'
