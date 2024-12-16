@@ -129,7 +129,7 @@ return {
     --   mode = { 'n', 'v' },
     -- },
     {
-      '<leader>tB',
+      '<leader>gB',
       function()
         Snacks.git.blame_line()
       end,
@@ -143,19 +143,19 @@ return {
       desc = 'Lazygit Current File History',
     },
     {
-      '<leader>gL',
+      '<leader>gy',
       function()
         Snacks.lazygit()
       end,
       desc = 'Lazygit Open',
     },
-    -- {
-    --   '<leader>gl',
-    --   function()
-    --     Snacks.lazygit.log()
-    --   end,
-    --   desc = 'Lazygit Log (cwd)',
-    -- },
+    {
+      '<leader>gL',
+      function()
+        Snacks.lazygit.log()
+      end,
+      desc = 'Lazygit Log (cwd)',
+    },
     -- {
     --   '<leader>un',
     --   function()
