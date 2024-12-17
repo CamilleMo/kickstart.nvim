@@ -15,6 +15,12 @@ vim.keymap.set('n', '<leader>ba', ':e #<CR>', { noremap = true, silent = true, d
 --  NOTE: do :w file.txt to save a new buffer
 vim.keymap.set('n', '<leader>be', ':enew<CR>', { noremap = true, silent = true, desc = 'Open a new buffer - enew' })
 
+-- quickfix commands
+-- do ctrl+q in telescope to populate the quickfix list
+vim.keymap.set('n', '<M-j>', ':cnext<CR>', { noremap = true, silent = true, desc = 'Next quickfix' })
+vim.keymap.set('n', '<M-k>', ':cprevious<CR>', { noremap = true, silent = true, desc = 'Previous quickfix' })
+-- remember :cdo
+
 -- code commands
 vim.keymap.set('n', '<leader>cc', ':normal gcc<CR>', { noremap = true, silent = true, desc = '[C]ode [C]omment' })
 
