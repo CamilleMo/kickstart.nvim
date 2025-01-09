@@ -44,11 +44,25 @@ vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, de
 vim.keymap.set('n', '<leader>X', '<cmd>source %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
 vim.keymap.set('n', '<leader>x', ':.lua<CR>', { noremap = true, silent = true, desc = 'Execute lua line' })
+
 -- terminal
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n>', { noremap = true, silent = true, desc = 'Out of terminal' })
 vim.keymap.set({ 'n' }, '<C-t>', ':lua Snacks.terminal.toggle()<CR>', { noremap = true, silent = true, desc = 'Out of terminal' })
+
 -- hop
 vim.keymap.set('n', '<leader>jj', ':HopChar2<CR>', { noremap = true, silent = true, desc = 'Hop with 2 chars' })
 vim.keymap.set('n', '<leader>jw', ':HopWord<CR>', { noremap = true, silent = true, desc = 'Hop with word' })
 vim.keymap.set('n', '<leader>jl', ':HopLine<CR>', { noremap = true, silent = true, desc = 'Hop with line' })
-print 'keymaps loaded'
+local message = 'keymaps loaded'
+print(message)
+
+-- Enable autoread
+vim.opt.autoread = true
+
+-- Create an autocommand for checktime
+vim.api.nvim_create_autocmd('CursorHold', {
+  pattern = '*',
+  callback = function()
+    vim.cmd 'checktime'
+  end,
+})
