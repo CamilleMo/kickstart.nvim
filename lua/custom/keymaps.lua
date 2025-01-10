@@ -55,14 +55,3 @@ vim.keymap.set('n', '<leader>jw', ':HopWord<CR>', { noremap = true, silent = tru
 vim.keymap.set('n', '<leader>jl', ':HopLine<CR>', { noremap = true, silent = true, desc = 'Hop with line' })
 local message = 'keymaps loaded'
 print(message)
-
--- Enable autoread
-vim.opt.autoread = true
-
--- Create an autocommand for checktime
-vim.api.nvim_create_autocmd('CursorHold', {
-  pattern = '*',
-  callback = function()
-    vim.cmd 'checktime'
-  end,
-})

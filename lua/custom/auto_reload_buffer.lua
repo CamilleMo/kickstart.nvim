@@ -1,20 +1,11 @@
--- Auto-reload files when changed externally
--- vim.o.autoread = true
--- vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'CursorHoldI', 'FocusGained' }, {
---   command = "if mode() != 'c' | checktime | endif",
---   pattern = { '*' },
--- })
--- vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
---   pattern = '*',
---   callback = function()
---     if vim.fn.getcmdwintype() == '' then
---       vim.cmd 'checktime'
---       -- Force LSP to update
---       vim.cmd 'silent! lua vim.lsp.buf.semantic_tokens_full()'
---       -- Clear and show diagnostics
---       vim.cmd 'silent! lua vim.diagnostic.reset()'
---       vim.cmd 'silent! lua vim.diagnostic.show()'
---     end
---   end,
--- })
-return {}
+-- Enable autoread
+vim.opt.autoread = true
+-- vim.opt.updatetime = 2000
+
+-- Create an autocommand for checktime
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold' }, {
+  pattern = '*',
+  callback = function()
+    vim.cmd 'checktime'
+  end,
+})
