@@ -53,5 +53,9 @@ vim.keymap.set({ 'n' }, '<C-t>', ':lua Snacks.terminal.toggle()<CR>', { noremap 
 vim.keymap.set('n', '<leader>jj', ':HopChar2<CR>', { noremap = true, silent = true, desc = 'Hop with 2 chars' })
 vim.keymap.set('n', '<leader>jw', ':HopWord<CR>', { noremap = true, silent = true, desc = 'Hop with word' })
 vim.keymap.set('n', '<leader>jl', ':HopLine<CR>', { noremap = true, silent = true, desc = 'Hop with line' })
+
+-- move lines up/down in visual mode
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = 'Move line down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = 'Move line up' })
 local message = 'keymaps loaded'
 print(message)
