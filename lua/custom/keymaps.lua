@@ -57,5 +57,25 @@ vim.keymap.set('n', '<leader>jl', ':HopLine<CR>', { noremap = true, silent = tru
 -- move lines up/down in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = 'Move line down' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = 'Move line up' })
-local message = 'keymaps loaded'
-print(message)
+
+-- tabs manipulation
+-- Create a new tab
+vim.keymap.set('n', '<leader>ctn', ':tabnew<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [N]ew' })
+-- Go to next tab
+vim.keymap.set('n', '<leader>ctt', ':tabnext<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab nex[T]' })
+-- Go to previous tab
+vim.keymap.set('n', '<leader>ctp', ':tabprevious<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [P]revious' })
+-- Close current tab
+vim.keymap.set('n', '<leader>ctc', ':tabclose<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [C]lose' })
+-- Go to first tab
+vim.keymap.set('n', '<leader>ct1', ':tabfirst<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [1]st' })
+-- Go to last tab
+vim.keymap.set('n', '<leader>ct0', ':tablast<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab last ([0])' })
+-- Move current tab to the left
+vim.keymap.set('n', '<leader>ct<', ':-tabmove<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab move left' })
+-- Move current tab to the right
+vim.keymap.set('n', '<leader>ct>', ':+tabmove<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab move right' })
+-- Open current buffer in a new tab
+vim.keymap.set('n', '<leader>cto', ':tab split<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [O]pen buffer' })
+-- List all tabs
+vim.keymap.set('n', '<leader>ctl', ':tabs<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [L]ist' })
