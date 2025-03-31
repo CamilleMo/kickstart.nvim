@@ -33,8 +33,8 @@ vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<CR>', { noremap = tru
 -- vim.keymap.set('n', '<leader>gB', ':G blame<CR>', { noremap = true, silent = true, desc = 'Open Neogit' })
 
 -- custom code insertion
-vim.keymap.set('n', '<leader>cid', ':read !date --iso-8601<CR>', { noremap = true, silent = true, desc = '[C]ode [I]nsert [D]ate' })
-vim.keymap.set('n', '<leader>cit', ':read !date<CR>', { noremap = true, silent = true, desc = '[C]ode [I]nsert [T]imestamp' })
+-- vim.keymap.set('n', '<leader>cid', ':read !date --iso-8601<CR>', { noremap = true, silent = true, desc = '[C]ode [I]nsert [D]ate' })
+-- vim.keymap.set('n', '<leader>cit', ':read !date<CR>', { noremap = true, silent = true, desc = '[C]ode [I]nsert [T]imestamp' })
 
 -- LSP helper
 vim.keymap.set('n', 'gl', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true, desc = 'LSP: [G]o to [L]ine diagnostic' })

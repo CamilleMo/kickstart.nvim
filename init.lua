@@ -1043,9 +1043,10 @@ require('lazy').setup({
 
 -- Custom keymaps maintained separately
 require 'custom.keymaps' -- Importing the custom keymaps
-
+require 'custom.macros'
 -- require 'custom.deno_and_typescript'
 require 'custom.auto_reload_buffer'
+
 -- custom plugins setup
 -- TODO: this should not be necessary as the lazy section import custom plugins, refactor
 --
