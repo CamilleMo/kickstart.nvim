@@ -1054,6 +1054,7 @@ require('lazy').setup({
 require 'custom.keymaps' -- Importing the custom keymaps
 require 'custom.macros'
 -- require 'custom.deno_and_typescript'
+-- this can create issues with q: and q/
 require 'custom.auto_reload_buffer'
 
 -- custom plugins setup

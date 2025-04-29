@@ -1,12 +1,36 @@
 -- CUSTOM MACROS --
 -----------------
 ---
+--- file specific macros
+local esc = vim.api.nvim_replace_termcodes('<Esc>', true, true, true)
+local enter = vim.api.nvim_replace_termcodes('<CR>', true, true, true)
+local ctrl_a = vim.api.nvim_replace_termcodes('<C-a>', true, true, true)
+
 --- global macros
 vim.fn.setreg('q', 'ihello here!') --- example
 vim.fn.setreg('d', 'lD') --- useless as it remplaces a two strokes vim command by a two strokes triggered macros. Delete the rest of the line preservign the current character.
-
---- file specific macros
-local esc = vim.api.nvim_replace_termcodes('<Esc>', true, true, true)
+vim.fn.setreg(
+  'a',
+  'G?^## '
+    .. enter
+    .. esc
+    .. 'yyGo'
+    .. esc
+    .. 'plll'
+    .. ctrl_a
+    .. 'lllDi Action Name'
+    .. esc
+    .. 'o'
+    .. enter
+    .. '### Description'
+    .. enter
+    .. enter
+    .. '### Notes'
+    .. enter
+    .. enter
+    .. '---'
+    .. esc
+)
 
 vim.api.nvim_create_augroup('JSLogMacro', { clear = true })
 
