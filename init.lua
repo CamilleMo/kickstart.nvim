@@ -346,7 +346,8 @@ require('lazy').setup({
       -- Document existing key chains
       spec = {
         { '<leader>a', group = '[A]I [A]ssistant' },
-        { '<leader>b', group = '[B]uffer' },
+        { '<leader>b', group = '[B]uffers and Ta[B]s' },
+        { '<leader>bt', group = '[T]abs' },
         -- { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         -- { '<leader>d', group = '[D]ocument' },
         { '<leader>g', group = '[G]it and Neogit' },
@@ -579,7 +580,7 @@ require('lazy').setup({
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
-	  --  old from nvim 10
+          --  old from nvim 10
           --  the definition of its *type*, not where it was *defined*.
           -- map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition') -- old nvim 10
 
@@ -603,7 +604,7 @@ require('lazy').setup({
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration') -- old nvim 10
-	  -- end of old nvim 10
+          -- end of old nvim 10
           map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)

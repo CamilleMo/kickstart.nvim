@@ -22,7 +22,7 @@ vim.keymap.set('n', '<M-k>', ':cprevious<CR>', { noremap = true, silent = true, 
 -- remember :cdo
 
 -- code commands
-vim.keymap.set('n', '<leader>cc', ':normal gcc<CR>', { noremap = true, silent = true, desc = '[C]ode [C]omment' })
+-- vim.keymap.set('n', '<leader>cc', ':normal gcc<CR>', { noremap = true, silent = true, desc = '[C]ode [C]omment' })
 
 -- neogit
 vim.keymap.set('n', '<leader>gs', ':Neogit<CR>', { noremap = true, silent = true, desc = 'Open Neogit' })
@@ -60,22 +60,22 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true, de
 
 -- tabs manipulation
 -- Create a new tab
-vim.keymap.set('n', '<leader>ctn', ':tabnew<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [N]ew' })
+vim.keymap.set('n', '<leader>btn', ':tabnew<CR>', { noremap = true, silent = true, desc = '[T]ab [N]ew' })
 -- Go to next tab
-vim.keymap.set('n', '<leader>ctt', ':tabnext<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab nex[T]' })
+vim.keymap.set('n', '<leader>btt', ':tabnext<CR>', { noremap = true, silent = true, desc = '[T]ab nex[T]' })
 -- Go to previous tab
-vim.keymap.set('n', '<leader>ctp', ':tabprevious<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [P]revious' })
+vim.keymap.set('n', '<leader>btp', ':tabprevious<CR>', { noremap = true, silent = true, desc = '[T]ab [P]revious' })
 -- Close current tab
-vim.keymap.set('n', '<leader>ctc', ':tabclose<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [C]lose' })
+vim.keymap.set('n', '<leader>btc', ':tabclose<CR>', { noremap = true, silent = true, desc = '[T]ab [C]lose' })
 -- Go to first tab
-vim.keymap.set('n', '<leader>ct1', ':tabfirst<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [1]st' })
+vim.keymap.set('n', '<leader>bt1', ':tabfirst<CR>', { noremap = true, silent = true, desc = '[T]ab [1]st' })
 -- Go to last tab
-vim.keymap.set('n', '<leader>ct0', ':tablast<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab last ([0])' })
+vim.keymap.set('n', '<leader>bt0', ':tablast<CR>', { noremap = true, silent = true, desc = '[T]ab last ([0])' })
 -- Move current tab to the left
-vim.keymap.set('n', '<leader>ct<', ':-tabmove<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab move left' })
+vim.keymap.set('n', '<leader>bt<', ':-tabmove<CR>', { noremap = true, silent = true, desc = '[T]ab move left' })
 -- Move current tab to the right
-vim.keymap.set('n', '<leader>ct>', ':+tabmove<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab move right' })
+vim.keymap.set('n', '<leader>bt>', ':+tabmove<CR>', { noremap = true, silent = true, desc = '[T]ab move right' })
 -- Open current buffer in a new tab
-vim.keymap.set('n', '<leader>cto', ':tab split<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [O]pen buffer' })
+vim.keymap.set('n', '<leader>bto', ':tab split<CR>', { noremap = true, silent = true, desc = '[T]ab [O]pen buffer' })
 -- List all tabs
-vim.keymap.set('n', '<leader>ctl', ':tabs<CR>', { noremap = true, silent = true, desc = '[C]ode [T]ab [L]ist' })
+vim.keymap.set('n', '<leader>btl', ':tabs<CR>', { noremap = true, silent = true, desc = '[T]ab [L]ist' })
