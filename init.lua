@@ -154,7 +154,7 @@ vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- display a tab as the same width as four spaces
-vim.opt.tabstop = 4
+vim.o.tabstop = 4
 
 -- Preview substitutions live, as you type!
 vim.o.inccommand = 'split'
@@ -173,6 +173,9 @@ vim.o.confirm = true
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
+
+-- to be able to use :find anyfileInProject.x we can add the recursive option to path
+vim.opt.path:append '**'
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
