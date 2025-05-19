@@ -356,6 +356,7 @@ require('lazy').setup({
         -- { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
+        { 'gr', group = 'LSP' },
         -- { '<leader>w', group = '[W]orkspace' },
       },
     },
