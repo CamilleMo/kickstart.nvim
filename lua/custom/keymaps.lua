@@ -79,3 +79,12 @@ vim.keymap.set('n', '<leader>bt>', ':+tabmove<CR>', { noremap = true, silent = t
 vim.keymap.set('n', '<leader>bto', ':tab split<CR>', { noremap = true, silent = true, desc = '[T]ab [O]pen buffer' })
 -- List all tabs
 vim.keymap.set('n', '<leader>btl', ':tabs<CR>', { noremap = true, silent = true, desc = '[T]ab [L]ist' })
+
+-- kulula - only for *.http files
+-- https://neovim.getkulala.net/docs/getting-started/default-keymaps
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'http',
+  callback = function()
+    vim.keymap.set('n', '<leader>Rs', ':lua require("kulala").run()<CR>', { buffer = true, noremap = true, silent = true, desc = 'kulula' })
+  end,
+})
