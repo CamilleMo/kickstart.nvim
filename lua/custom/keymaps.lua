@@ -44,6 +44,8 @@ vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, de
 vim.keymap.set('n', '<leader>X', '<cmd>source %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
 vim.keymap.set('v', '<leader>x', ':lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
 vim.keymap.set('n', '<leader>x', ':.lua<CR>', { noremap = true, silent = true, desc = 'Execute lua line' })
+vim.keymap.set('n', '<CR>', 'o<esc>k', { noremap = true, silent = true, desc = 'Insert a line below without entering insert mode' })
+vim.keymap.set('n', '<C-CR>', 'O<esc>j', { noremap = true, silent = true, desc = 'Insert a line above without entering insert mode' }) -- this one does not work
 
 -- terminal
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n>', { noremap = true, silent = true, desc = 'Out of terminal' })
