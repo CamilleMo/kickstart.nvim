@@ -371,8 +371,4 @@ require 'custom.macros'
 require 'custom.auto_reload_buffer'
 
 -- custom plugins setup
--- TODO: this should not be necessary as the lazy section import custom plugins, refactor
---
--- require 'custom.plugins.lualine'
--- require 'custom.plugins.obsidian'
--- require 'custom.plugins.oil'
+require 'custom.extra_plugins_settings'
