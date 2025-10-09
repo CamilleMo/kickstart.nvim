@@ -1,3 +1,5 @@
+-- https://github.com/folke/snacks.nvim
+-- gx to go to the page :)
 return {
   'folke/snacks.nvim',
   priority = 1000,
