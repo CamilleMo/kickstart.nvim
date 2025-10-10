@@ -36,7 +36,7 @@ return {
       enabled = true,
       win = {
         bo = {
-          filetype = 'terminal_toto',
+          filetype = 'terminal',
         },
         wo = {},
         keys = {

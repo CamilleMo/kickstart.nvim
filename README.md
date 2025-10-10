@@ -242,6 +242,10 @@ sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ## Personal Notes
 Please set the Obsidian Vault location with an environment variable in the .zshrc or .bashrc :
 `export OBSIDIAN_VAULT='/my/vault/location'`
+To install an lsp for lua run:
+`brew install lua-language-server`
+To get a formatter for lua run:
+`brew install stylua`
 
 ### Using kulala
 
