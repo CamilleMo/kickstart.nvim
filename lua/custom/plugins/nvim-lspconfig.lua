@@ -40,7 +40,15 @@ return {
       capabilities = require('blink.cmp').get_lsp_capabilities(),
     })
 
-    vim.lsp.enable 'luals'
+    -- lua_ls respect the name in lspconfig-all
+    -- rufflsp does not / it us ruff in lspconfig-all
+    -- basedpyright_c does not respect the name
+    -- gopls does respect the name
+    --
+    -- to sumup if the name matches the name in lspconfig-all, it will benefit from the default config.
+    -- The default config can be ovverridden if you use the exact name
+    -- otherwise it is a completely custom config and you have to provide the minimum parameters to enable the server
+    vim.lsp.enable { 'lua_ls', 'rufflsp', 'basedpyright_c', 'gopls' }
 
     --  This function gets run when an LSP attaches to a particular buffer.
     --    That is to say, every time a new file is opened that is associated with

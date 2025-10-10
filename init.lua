@@ -177,6 +177,9 @@ vim.o.confirm = true
 -- to be able to use :find anyfileInProject.x we can add the recursive option to path
 vim.opt.path:append '**'
 
+-- set the window border to rounded
+vim.o.winborder = 'rounded'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 

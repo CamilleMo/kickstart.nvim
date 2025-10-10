@@ -1,3 +1,5 @@
+-- https://github.com/stevearc/conform.nvim?tab=readme-ov-file#options
+-- gx to go to the page :)
 return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
@@ -32,6 +34,8 @@ return { -- Autoformat
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
       python = { 'isort', 'ruff format' },
+      -- go install golang.org/x/tools/cmd/goimports@latest
+      go = { 'goimports', 'gofmt' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
