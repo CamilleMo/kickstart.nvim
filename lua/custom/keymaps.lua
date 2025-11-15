@@ -119,6 +119,10 @@ vim.keymap.set('n', '<leader>bto', ':tab split<CR>', { noremap = true, silent = 
 -- List all tabs
 vim.keymap.set('n', '<leader>btl', ':tabs<CR>', { noremap = true, silent = true, desc = '[T]ab [L]ist' })
 
+-- H and L for line navigation
+vim.keymap.set('n', 'H', '^', { noremap = true, silent = true, desc = 'Go to beginning of line' })
+vim.keymap.set('n', 'L', '$', { noremap = true, silent = true, desc = 'Go to end of line' })
+
 -- kulula - only for *.http files
 -- https://neovim.getkulala.net/docs/getting-started/default-keymaps
 vim.api.nvim_create_autocmd('FileType', {
