@@ -36,6 +36,8 @@ return { -- Autoformat
       python = { 'isort', 'ruff format' },
       -- go install golang.org/x/tools/cmd/goimports@latest
       go = { 'goimports', 'gofmt' },
+      typescript = { 'prettierd', 'prettier', lsp_format = false },
+      typescriptreact = { 'prettierd', 'prettier', lsp_format = false },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },

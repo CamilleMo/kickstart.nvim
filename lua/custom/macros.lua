@@ -44,3 +44,17 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.fn.setreg('c', "yiwoconsole.log('" .. esc .. "pa:', " .. esc .. 'pa);' .. esc)
   end,
 })
+
+-- Function to enter insert mode and paste from unnamed register
+local function insert_with_register()
+  -- Get the content of the unnamed register (")
+  vim.fn.feedkeys('"vy', 'x')
+  local register_content = vim.fn.getreg 'v'
+  Snacks.terminal()
+
+  -- Send 'i' to enter insert mode, followed by the register content
+  vim.fn.feedkeys('' .. register_content, 'n')
+end
+
+-- Optional: Create a keymap to use this function
+vim.keymap.set('v', '<leader>xp', insert_with_register, { desc = 'Send to Terminal' })

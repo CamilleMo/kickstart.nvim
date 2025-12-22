@@ -78,9 +78,9 @@ vim.keymap.set('n', 'gl', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>
 
 -- misc
 vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, desc = 'FORCE QUIT' })
-vim.keymap.set('n', '<leader>X', '<cmd>source %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
-vim.keymap.set('v', '<leader>x', ':lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
-vim.keymap.set('n', '<leader>x', ':.lua<CR>', { noremap = true, silent = true, desc = 'Execute lua line' })
+vim.keymap.set('n', '<leader>xL', '<cmd>source %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
+vim.keymap.set('v', '<leader>xl', ':lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
+vim.keymap.set('n', '<leader>xl', ':.lua<CR>', { noremap = true, silent = true, desc = 'Execute lua line' })
 vim.keymap.set('n', '<F2>', 'o<esc>k', { noremap = true, silent = true, desc = 'Insert a line below without entering insert mode' })
 vim.keymap.set('n', '<F3>', 'O<esc>j', { noremap = true, silent = true, desc = 'Insert a line above without entering insert mode' }) -- this one does not work
 
