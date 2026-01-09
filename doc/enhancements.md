@@ -527,3 +527,29 @@ Your configuration is well-structured and uses modern Neovim practices (Neovim 0
 5. **Robustness**: Add health checks and error handling
 
 Implementing even a few of these suggestions will make your configuration more robust and productive.
+
+---
+
+## 8. Implementation Checklist
+
+Track progress on implementing the suggested enhancements. Update status to `done` when completed.
+
+| ID | Task | File(s) | Status |
+|----|------|---------|--------|
+| 1.1 | Remove duplicate `vim.o.confirm` setting | `init.lua` | todo |
+| 1.2 | Reduce `scrolloff` from 100 to 10-15 | `init.lua` | todo |
+| 2.2 | Move `require('flash').toggle()` to flash.lua config | `extra_plugins_settings.lua`, `flash.lua` | todo |
+| 2.3 | Rename LSP files to standard names (`basedpyright.lua`, `ruff.lua`) | `lsp/` | todo |
+| 3.1 | Fix TypeScript LSP config (currently commented out) | `lsp/ts_ls.lua` | todo |
+| 3.2 | Uncomment gopls `cmd` for explicitness | `lsp/gopls.lua` | todo |
+| 4.1 | Fix avante.nvim conflicting lazy settings | `avante.lua` | todo |
+| 4.2 | Remove none-ls.nvim (redundant with conform+ruff) | `none-ls.lua` | todo |
+| 4.4 | Fix lualine theme to use catppuccin | `lualine.lua` | todo |
+| 4.5 | Remove mini.statusline (conflicts with lualine) | `mini.lua` | todo |
+| 4.6 | Enable tree-sitter textobjects navigation (`]f`, `[f`, `]c`, `[c`) | `tree-sitter-textobjects.lua` | todo |
+| 4.7 | Switch blink.cmp fuzzy to `prefer_rust_with_warning` | `blink.lua` | todo |
+| 5.1 | Fix gitsigns `<leader>hu` bug (wrong function) | `git-signs.lua` | todo |
+| 5.3 | Add centered scrolling keymaps (`<C-d>zz`, `<C-u>zz`) | `keymaps.lua` | todo |
+| 6.1 | Create health check file | `lua/custom/health.lua` | todo |
+| 6.3 | Add `safe_require` wrapper for custom modules | `init.lua` | todo |
+| 6.4 | Fix Snacks global variable (`_G.Snacks`) | `snacks.lua` | todo |
