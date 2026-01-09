@@ -4,3 +4,4 @@ nvim
 
 spell/
 lazy-lock.json
+*.docx
