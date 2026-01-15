@@ -143,3 +143,20 @@ vim.api.nvim_create_user_command('DiffMain', function()
   vim.cmd 'diffthis'
 end, {})
 vim.keymap.set('n', '<leader>hm>', ':DiffMain', { noremap = true, silent = true, desc = 'Diff with [M]ain' })
+
+-- diff with any branch
+-- usage: :Diff master
+vim.api.nvim_create_user_command('Diff', function(opts)
+  local branch = opts.args
+  if branch == nil or branch == '' then
+    branch = 'main'
+  end
+  local file = vim.fn.expand '%'
+  vim.cmd 'diffthis'
+  vim.cmd 'vnew'
+  vim.cmd('r !git show ' .. branch .. ':' .. file)
+  vim.cmd 'set buftype=nofile'
+  vim.cmd('file Diff:' .. branch .. ':' .. file)
+  vim.cmd 'diffthis'
+end, { nargs = 1, complete = 'shellcmd' })
+
