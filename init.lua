@@ -178,13 +178,13 @@ vim.o.winborder = 'rounded'
 -- Faster macros and screen updates
 vim.o.lazyredraw = true
 
--- Highlight all matches of the search pattern (disabled as requested)
-vim.o.hlsearch = false
--- Show partial matches while typing (disabled as requested)
-vim.o.incsearch = false
+-- Highlight all matches of the search pattern
+vim.o.hlsearch = true
+-- Show partial matches while typing
+vim.o.incsearch = true
 
 -- Persistent undo across sessions
-vim.o.undodir = vim.fn.stdpath('data') .. '/undo'
+vim.o.undodir = vim.fn.stdpath 'data' .. '/undo'
 
 -- Disable swap files (using persistent undo instead)
 vim.o.swapfile = false
