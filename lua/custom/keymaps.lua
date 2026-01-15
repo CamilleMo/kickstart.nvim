@@ -131,3 +131,15 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', '<leader>Rs', ':lua require("kulala").run()<CR>', { buffer = true, noremap = true, silent = true, desc = 'kulula' })
   end,
 })
+
+-- diff with main
+vim.api.nvim_create_user_command('DiffMain', function()
+  local file
+  file = vim.fn.expand '%'
+  vim.cmd 'diffthis'
+  vim.cmd 'vnew'
+  vim.cmd('r !git show main:' .. file)
+  vim.cmd 'set buftype=nofile'
+  vim.cmd 'diffthis'
+end, {})
+vim.keymap.set('n', '<leader>hm>', ':DiffMain', { noremap = true, silent = true, desc = 'Diff with [M]ain' })
