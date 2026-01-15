@@ -74,6 +74,8 @@ vim.o.showmatch = true
 vim.o.shortmess = vim.o.shortmess .. 'c'
 ```
 
+Status: done
+
 ---
 
 ## 2. File Layout & Organization
@@ -562,6 +564,7 @@ Track progress on implementing the suggested enhancements. Update status to `don
 |----|------|---------|--------|
 | 1.1 | Remove duplicate `vim.o.confirm` setting | `init.lua` | done |
 | 1.2 | Reduce `scrolloff` from 100 to 10-15 | `init.lua` | done |
+| 1.3 | Add missing useful options | `init.lua` | done |
 | 2.2 | Move `require('flash').toggle()` to flash.lua config | `extra_plugins_settings.lua`, `flash.lua` | todo |
 | 2.3 | Rename LSP files to standard names (`basedpyright.lua`, `ruff.lua`) | `lsp/` | todo |
 | 3.1 | Fix TypeScript LSP config (currently commented out) | `lsp/ts_ls.lua` | todo |

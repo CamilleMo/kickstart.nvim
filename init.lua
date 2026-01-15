@@ -175,6 +175,29 @@ vim.opt.path:append '**'
 -- set the window border to rounded
 vim.o.winborder = 'rounded'
 
+-- Faster macros and screen updates
+vim.o.lazyredraw = true
+
+-- Highlight all matches of the search pattern (disabled as requested)
+vim.o.hlsearch = false
+-- Show partial matches while typing (disabled as requested)
+vim.o.incsearch = false
+
+-- Persistent undo across sessions
+vim.o.undodir = vim.fn.stdpath('data') .. '/undo'
+
+-- Disable swap files (using persistent undo instead)
+vim.o.swapfile = false
+
+-- Better completion experience (menuone: show even if one match, noselect: don't select automatically)
+vim.o.completeopt = 'menu,menuone,noselect'
+
+-- Show matching brackets when a closing bracket is typed
+vim.o.showmatch = true
+
+-- Reduce command line messages (append 'c' to suppress completion messages)
+vim.o.shortmess = vim.o.shortmess .. 'c'
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
