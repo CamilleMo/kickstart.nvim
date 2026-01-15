@@ -29,6 +29,7 @@ vim.o.confirm = true  -- line 170
 vim.o.confirm = true  -- line 175
 ```
 **Recommendation:** Remove the duplicate.
+Status: done
 
 #### 1.2 Extreme `scrolloff` Value
 **File:** `init.lua:166`
@@ -42,6 +43,8 @@ A value of 100 essentially keeps the cursor always centered, which can be disori
 ```lua
 vim.o.scrolloff = 10
 ```
+
+Status: done
 
 #### 1.3 Missing Useful Options
 
@@ -227,6 +230,7 @@ lazy = false,  -- Contradicts VeryLazy
 ```
 
 These settings conflict. `lazy = false` loads immediately, while `event = 'VeryLazy'` delays loading. Pick one strategy.
+Status: to do
 
 ### 4.2 none-ls.nvim Has No Configuration
 **File:** `lua/custom/plugins/none-ls.lua`
@@ -234,6 +238,8 @@ These settings conflict. `lazy = false` loads immediately, while `event = 'VeryL
 The plugin is loaded but has no actual configuration (opts function is commented out). Either configure it properly or remove it since you already have conform.nvim for formatting and ruff for linting.
 
 **Recommendation:** Remove `none-ls.nvim` - it's redundant with your current setup.
+
+Status: to do
 
 ### 4.3 Codeium + Avante + Copilot Overlap
 **Files:** `codeium.lua`, `avante.lua`
@@ -247,6 +253,8 @@ This creates potential conflicts. Consider:
 1. Use only Codeium for inline completions OR
 2. Use Copilot if you prefer it (Avante works better with it)
 
+Status: do not do
+
 ### 4.4 Lualine Theme Mismatch
 **File:** `lua/custom/plugins/lualine.lua:6`
 
@@ -259,7 +267,9 @@ But your colorscheme is `catppuccin`. Use the matching theme:
 local theme = 'catppuccin'
 -- or
 local theme = require 'lualine.themes.catppuccin'
+
 ```
+Status: to do
 
 ### 4.5 Mini.statusline Conflicts with Lualine
 
@@ -272,6 +282,7 @@ You have both `mini.statusline` (in mini.lua) and `lualine.nvim` configured. The
 -- local statusline = require 'mini.statusline'
 -- statusline.setup { use_icons = vim.g.have_nerd_font }
 ```
+Status: to do
 
 ### 4.6 Tree-sitter Textobjects Are Mostly Disabled
 **File:** `lua/custom/plugins/tree-sitter-textobjects.lua`
@@ -288,6 +299,7 @@ goto_previous_start = {
   ['[c'] = '@class.outer',
 },
 ```
+Status: to do
 
 These are extremely useful for code navigation.
 
@@ -301,7 +313,9 @@ fuzzy = { implementation = 'lua' },
 For better performance, consider:
 ```lua
 fuzzy = { implementation = 'prefer_rust_with_warning' },
+
 ```
+Status: to do
 
 ### 4.8 Snacks.nvim Has Many Disabled Features
 
@@ -327,6 +341,7 @@ This is mapped to `stage_hunk` but described as "undo stage hunk". Fix:
 ```lua
 map('n', '<leader>hu', gitsigns.undo_stage_hunk, { desc = 'git [u]ndo stage hunk' })
 ```
+Status: to do
 
 ### 5.2 Tab Keymaps Could Be Simpler
 
@@ -364,7 +379,9 @@ vim.keymap.set('n', '<C-Up>', ':resize -2<CR>')
 vim.keymap.set('n', '<C-Down>', ':resize +2<CR>')
 vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>')
 vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
+
 ```
+Status: do not do
 
 ### 5.4 `jk` to Escape May Cause Typing Issues
 
@@ -374,6 +391,7 @@ vim.keymap.set('i', 'jj', '<Esc>', { noremap = true, silent = true })
 ```
 
 Or use a timeout-based solution with `better-escape.nvim`.
+Status: do not do
 
 ### 5.5 Codeium Keymaps Use `f*` Which May Conflict
 
@@ -381,10 +399,11 @@ Or use a timeout-based solution with `better-escape.nvim`.
 
 Using `fg`, `ff`, `fd`, `fx`, `fc` in insert mode may interfere with typing. Consider using `<C-*>` combinations:
 ```lua
-vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true })
+vim.keymap.set('i', '<C-y>', function() return vim.fn['codeium#Accept']() end, { expr = true })
 vim.keymap.set('i', '<C-]>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
 vim.keymap.set('i', '<C-[>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
 ```
+Status: to think, do not do for now
 
 ---
 
@@ -428,7 +447,9 @@ end
 return M
 ```
 
+
 Then run `:checkhealth custom` to verify your setup.
+Status: to improve, do not do for now
 
 ### 6.2 Lazy Load More Plugins
 
@@ -444,6 +465,7 @@ lazy = true,  -- Change from false
 
 -- snacks.lua: Consider lazy loading some features
 ```
+Status: redundant with a task at the beginning of the file, do not do for now
 
 ### 6.3 Add Error Handling to Custom Requires
 
@@ -466,7 +488,9 @@ safe_require('custom.keymaps')
 safe_require('custom.macros')
 safe_require('custom.auto_reload_buffer')
 safe_require('custom.extra_plugins_settings')
+
 ```
+Status: to do
 
 ### 6.4 Snacks Global Variable
 
@@ -536,8 +560,8 @@ Track progress on implementing the suggested enhancements. Update status to `don
 
 | ID | Task | File(s) | Status |
 |----|------|---------|--------|
-| 1.1 | Remove duplicate `vim.o.confirm` setting | `init.lua` | todo |
-| 1.2 | Reduce `scrolloff` from 100 to 10-15 | `init.lua` | todo |
+| 1.1 | Remove duplicate `vim.o.confirm` setting | `init.lua` | done |
+| 1.2 | Reduce `scrolloff` from 100 to 10-15 | `init.lua` | done |
 | 2.2 | Move `require('flash').toggle()` to flash.lua config | `extra_plugins_settings.lua`, `flash.lua` | todo |
 | 2.3 | Rename LSP files to standard names (`basedpyright.lua`, `ruff.lua`) | `lsp/` | todo |
 | 3.1 | Fix TypeScript LSP config (currently commented out) | `lsp/ts_ls.lua` | todo |
