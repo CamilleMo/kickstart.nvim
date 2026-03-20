@@ -3,8 +3,15 @@ return {
   cmd = { 'rust-analyzer' },
 
   -- Filetypes to automatically attach to.
-  filetypes = {'rust'}
-
+  filetypes = { 'rust' },
+  -- To install rust analyzer, run:
+  -- rustup component add rust-src
+  -- rustup component add rust-analyzer
+  -- OR
+  -- brew install rust-analyzer
+  -- OR
+  -- pacman -S rust-analyzer
+  -- ===================================================================================================
   -- Sets the "root directory" to the parent directory of the file in the
   -- current buffer that contains either a ".luarc.json" or a
   -- ".luarc.jsonc" file. Files that share a root directory will reuse
