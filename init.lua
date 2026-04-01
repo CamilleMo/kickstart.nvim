@@ -245,3 +245,21 @@ require 'custom.auto_reload_buffer'
 
 -- custom plugins setup
 require 'custom.extra_plugins_settings'
+
+-- Install parsers and queries automatically for treesitter
+require('nvim-treesitter').install {
+  'bash',
+  'c',
+  'diff',
+  'html',
+  'lua',
+  'luadoc',
+  'markdown',
+  'markdown_inline',
+  'query',
+  'vim',
+  'vimdoc',
+  'python',
+  'go',
+  'rust',
+}
