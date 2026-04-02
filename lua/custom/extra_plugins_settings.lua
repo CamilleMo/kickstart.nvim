@@ -11,4 +11,4 @@ vim.api.nvim_set_hl(0, 'MiniTablineModifiedVisible', { bold = true, fg = colors.
 vim.api.nvim_set_hl(0, 'MiniTablineModifiedHidden', { bold = true, fg = colors.peach, bg = colors.mantle })
 
 vim.api.nvim_set_hl(0, 'MiniTablineFill', { bg = colors.mantle })
-vim.pi.nvim_set_hl(0, 'MiniTablineTabpagesection', { bold = true, fg = colors.base, bg = colors.green })
+vim.api.nvim_set_hl(0, 'MiniTablineTabpagesection', { bold = true, fg = colors.base, bg = colors.green })
