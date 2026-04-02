@@ -1,9 +1,9 @@
 vim.opt.conceallevel = 2
 local obsidian_vault = os.getenv 'OBSIDIAN_HOME'
 if obsidian_vault then
-  print('Obsidian Vault is set to:' .. obsidian_vault)
+  vim.notify('Obsidian Vault is set to:' .. obsidian_vault)
 else
-  print "Environment variable 'OBSIDIAN_HOME' is not set."
+  vim.notify "Environment variable 'OBSIDIAN_HOME' is not set."
 end
 
 return {
