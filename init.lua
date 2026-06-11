@@ -239,6 +239,7 @@ vim.cmd.colorscheme 'catppuccin'
 -- Custom keymaps maintained separately
 require 'custom.keymaps' -- Importing the custom keymaps
 require 'custom.macros'
+require 'custom.cheatsheet' -- :Cheatsheet floating window (content in doc/cheatsheet.md)
 -- require 'custom.deno_and_typescript'
 -- this can create issues with q: and q/
 require 'custom.auto_reload_buffer'
