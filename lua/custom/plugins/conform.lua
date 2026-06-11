@@ -33,11 +33,12 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
-      python = { 'isort', 'ruff format' },
+      python = { 'isort', 'ruff_format' },
       -- go install golang.org/x/tools/cmd/goimports@latest
       go = { 'goimports', 'gofmt' },
-      typescript = { 'prettierd', 'prettier', lsp_format = false },
-      typescriptreact = { 'prettierd', 'prettier', lsp_format = false },
+      -- stop_after_first: prettierd and prettier produce the same output, only run the available one
+      typescript = { 'prettierd', 'prettier', stop_after_first = true, lsp_format = 'never' },
+      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true, lsp_format = 'never' },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },

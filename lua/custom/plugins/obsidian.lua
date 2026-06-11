@@ -1,13 +1,13 @@
 vim.opt.conceallevel = 2
 local obsidian_vault = os.getenv 'OBSIDIAN_HOME'
-if obsidian_vault then
-  vim.notify('Obsidian Vault is set to:' .. obsidian_vault)
-else
-  vim.notify "Environment variable 'OBSIDIAN_HOME' is not set."
+if not obsidian_vault then
+  vim.notify("Environment variable 'OBSIDIAN_HOME' is not set, obsidian.nvim is disabled.", vim.log.levels.WARN)
 end
 
 return {
   'epwalsh/obsidian.nvim',
+  -- without a vault path the plugin would error on setup, so disable it entirely
+  enabled = obsidian_vault ~= nil,
   version = '*', -- recommended, use latest release instead of latest commit
   lazy = true,
   ft = 'markdown',

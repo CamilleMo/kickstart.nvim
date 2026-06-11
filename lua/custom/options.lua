@@ -101,7 +101,10 @@ function M.setup()
   vim.o.incsearch = true
 
   -- Persistent undo across sessions
+  -- Unlike the default undodir, a custom one is NOT auto-created by Neovim:
+  -- without the mkdir, undo history silently stops persisting on a fresh machine
   vim.o.undodir = vim.fn.stdpath 'data' .. '/undo'
+  vim.fn.mkdir(vim.o.undodir, 'p')
 
   -- Disable swap files (using persistent undo instead)
   vim.o.swapfile = false

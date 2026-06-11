@@ -81,8 +81,14 @@ vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { noremap = true, silent = true, de
 vim.keymap.set('n', '<leader>xL', '<cmd>source %<CR>', { noremap = true, silent = true, desc = 'Execute the entire lua file' })
 vim.keymap.set('v', '<leader>xl', ':lua<CR>', { noremap = true, silent = true, desc = 'Execute lua lines' })
 vim.keymap.set('n', '<leader>xl', ':.lua<CR>', { noremap = true, silent = true, desc = 'Execute lua line' })
-vim.keymap.set('n', '<F2>', 'o<esc>k', { noremap = true, silent = true, desc = 'Insert a line below without entering insert mode' })
-vim.keymap.set('n', '<F3>', 'O<esc>j', { noremap = true, silent = true, desc = 'Insert a line above without entering insert mode' }) -- this one does not work
+-- append() avoids entering insert mode entirely: no comment-leader continuation,
+-- and the cursor does not move (the previous 'O<esc>j' version misbehaved on commented lines)
+vim.keymap.set('n', '<F2>', function()
+  vim.fn.append(vim.fn.line '.', '')
+end, { desc = 'Insert a line below without entering insert mode' })
+vim.keymap.set('n', '<F3>', function()
+  vim.fn.append(vim.fn.line '.' - 1, '')
+end, { desc = 'Insert a line above without entering insert mode' })
 
 -- terminal
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n>', { noremap = true, silent = true, desc = 'Out of terminal' })
@@ -132,31 +138,60 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- diff with main
-vim.api.nvim_create_user_command('DiffMain', function()
-  local file
-  file = vim.fn.expand '%'
-  vim.cmd 'diffthis'
-  vim.cmd 'vnew'
-  vim.cmd('r !git show main:' .. file)
-  vim.cmd 'set buftype=nofile'
-  vim.cmd 'diffthis'
-end, {})
-vim.keymap.set('n', '<leader>hm>', ':DiffMain', { noremap = true, silent = true, desc = 'Diff with [M]ain' })
+-- diff the current file with another branch
+-- usage: :Diff [branch] - without argument, diffs against the repo's default branch
+-- (origin/HEAD, falling back to main/master). :DiffMain is kept as an alias.
 
--- diff with any branch
--- usage: :Diff master
-vim.api.nvim_create_user_command('Diff', function(opts)
-  local branch = opts.args
-  if branch == nil or branch == '' then
-    branch = 'main'
+local function git_default_branch()
+  local head = vim.fn.systemlist 'git symbolic-ref --short refs/remotes/origin/HEAD'
+  if vim.v.shell_error == 0 and head[1] then
+    return (head[1]:gsub('^origin/', ''))
   end
-  local file = vim.fn.expand '%'
+  for _, name in ipairs { 'main', 'master' } do
+    vim.fn.system('git show-ref --verify --quiet refs/heads/' .. name)
+    if vim.v.shell_error == 0 then
+      return name
+    end
+  end
+  return 'main'
+end
+
+local function diff_with_branch(branch)
+  if branch == nil or branch == '' then
+    branch = git_default_branch()
+  end
+  -- path relative to the repo root, so this works when cwd is a subdirectory
+  local prefix = vim.fn.systemlist('git rev-parse --show-prefix')[1] or ''
+  local file = prefix .. vim.fn.expand '%'
+  local filetype = vim.bo.filetype
   vim.cmd 'diffthis'
   vim.cmd 'vnew'
   vim.cmd('r !git show ' .. branch .. ':' .. file)
-  vim.cmd 'set buftype=nofile'
-  vim.cmd('file Diff:' .. branch .. ':' .. file)
+  vim.cmd '0delete _' -- :read leaves an empty first line
+  vim.bo.buftype = 'nofile'
+  vim.bo.bufhidden = 'wipe'
+  vim.bo.filetype = filetype
+  vim.cmd('file ' .. vim.fn.fnameescape('Diff:' .. branch .. ':' .. file))
   vim.cmd 'diffthis'
-end, { nargs = 1, complete = 'shellcmd' })
+end
+
+local function git_branches(arglead)
+  local branches = vim.fn.systemlist "git for-each-ref --format='%(refname:short)' refs/heads refs/remotes"
+  if vim.v.shell_error ~= 0 then
+    return {}
+  end
+  return vim.tbl_filter(function(branch)
+    return vim.startswith(branch, arglead)
+  end, branches)
+end
+
+vim.api.nvim_create_user_command('Diff', function(opts)
+  diff_with_branch(opts.args)
+end, { nargs = '?', complete = git_branches })
+
+vim.api.nvim_create_user_command('DiffMain', function()
+  diff_with_branch(nil)
+end, {})
+
+vim.keymap.set('n', '<leader>hm', ':Diff<CR>', { noremap = true, silent = true, desc = 'Diff with [M]ain (default) branch' })
 

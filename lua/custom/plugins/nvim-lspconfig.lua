@@ -185,7 +185,8 @@ return {
     -- Diagnostic Config
     -- See :help vim.diagnostic.Opts
     vim.diagnostic.config {
-      virtual_line = true,
+      -- NOTE: virtual_lines (multi-line diagnostics under the code) is intentionally NOT enabled:
+      -- it would duplicate the virtual_text config below. Enable one or the other.
       severity_sort = true,
       float = { border = 'rounded', source = 'if_many' },
       underline = { severity = vim.diagnostic.severity.ERROR },
